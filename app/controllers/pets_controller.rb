@@ -26,12 +26,13 @@ class PetsController < ApplicationController
   end
 
   get '/pets/:id/edit' do
+        binding.pry
     @pet = Pet.find(params[:id])
     erb :'/pets/edit'
   end
 
   patch '/pets/:id' do
-    binding.pry
+
     if !params[:pet].keys.include?("owner_id")
     params[:pet]["owner_id"] = []
     end
